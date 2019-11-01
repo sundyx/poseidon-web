@@ -1,17 +1,13 @@
 
-<p>home</p>
+<p>home3</p>
 <mat-card>
-    <mat-form-field>
+    <!-- <mat-form-field>
         <input matInput [(ngModel)]="answer" placeholder="test button">
-    </mat-form-field>
-    
-    <br>
-    
-    <button mat-raised-button (click)="showAnswer()">Answer me</button>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-    </mat-card>
-    
-    
-    <mat-card *ngIf="answerDisplay">
-    <h1>{{ answerDisplay }},test button</h1>
-    </mat-card>
+    </mat-form-field> -->
+
+    <!-- <br> -->
+
+    <!-- <button mat-raised-button (click)="showAnswer()">Answer me</button> -->
+
+    <mat-progress-spinner  [mode]="'indeterminate'"> </mat-progress-spinner>
+</mat-card>

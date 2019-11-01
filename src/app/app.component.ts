@@ -6,15 +6,14 @@ import { Component, OnInit} from '@angular/core';
   <!-- routes will be rendered here -->
   <app-nav></app-nav>
   <router-outlet></router-outlet>
-  
   `,
   styles: []
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'poseidon-web';
-  answer: string = '';
-  answerDisplay: string = '';
-  showSpinner: boolean = false;
+  answer = '';
+  answerDisplay = '';
+  showSpinner = false;
 
   showAnswer() {
     this.showSpinner = true;
@@ -24,7 +23,6 @@ export class AppComponent implements OnInit{
       this.showSpinner = false;
     }, 2000);
   }
-  
   ngOnInit(): void {
   }
 }

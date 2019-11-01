@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import 'hammerjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -12,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryService, LegendService, TooltipService } from '@syncfusion/ej2-angular-charts';
 import { DataLabelService, LineSeriesService} from '@syncfusion/ej2-angular-charts';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,11 @@ import { DataLabelService, LineSeriesService} from '@syncfusion/ej2-angular-char
     HomeComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule, 
-    ChartModule, 
-    BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule
+    BrowserModule, AppRoutingModule, ChartModule, BrowserAnimationsModule,
+    MaterialModule, FormsModule, MatProgressSpinnerModule, FlexLayoutModule
   ],
   providers: [ CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

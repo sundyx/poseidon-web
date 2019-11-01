@@ -16,12 +16,12 @@ export class GraphsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.title = "Temperature Chart"
+    this.title = 'Temperature Chart'
     this.legendSettings = {
       visible: true
   }
-  this.marker = {
-    dataLabel:{
+    this.marker = {
+    dataLabel: {
         visible: true
     }
 };

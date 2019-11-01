@@ -1,5 +1,7 @@
 const { app, BrowserWindow } = require('electron')
-
+require('electron-reload')(__dirname, {
+  electron: require('${__dirname}/../../node_modules/electron')
+})
 let win;
 
 function createWindow () {
@@ -11,8 +13,8 @@ function createWindow () {
     icon: `file://${__dirname}/dist/assets/logo.png`
   })
 
-  process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
-  win.loadURL(`file://${__dirname}/dist/index.html`)
+  // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+  win.loadURL(`file://${__dirname}/dist/poseidon-web/index.html`)
 
   //// uncomment below to open the DevTools.
   // win.webContents.openDevTools()
