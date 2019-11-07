@@ -13,6 +13,7 @@ import { CategoryService, LegendService, TooltipService } from '@syncfusion/ej2-
 import { DataLabelService, LineSeriesService} from '@syncfusion/ej2-angular-charts';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {HttpClientModule} from '@angular/common/http';
 import 'hammerjs';
 
 @NgModule({
@@ -24,7 +25,7 @@ import 'hammerjs';
   ],
   imports: [
     BrowserModule, AppRoutingModule, ChartModule, BrowserAnimationsModule,
-    MaterialModule, FormsModule, MatProgressSpinnerModule, FlexLayoutModule
+    MaterialModule, FormsModule, MatProgressSpinnerModule, FlexLayoutModule, HttpClientModule
   ],
   providers: [ CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService ],
   bootstrap: [AppComponent]

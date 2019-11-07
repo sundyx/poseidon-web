@@ -7,7 +7,7 @@ import { NavComponent } from './nav/nav.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
 { path: 'graphs', component: GraphsComponent },
-{ path: 'nav', component: NavComponent },];
+{ path: 'nav', component: NavComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
