@@ -8,7 +8,13 @@
     <!-- <br> -->
 
      <button mat-raised-button (click)="doGet()">click me</button>
-
+    <p>graph</p>
+    <ejs-chart id="chart-container" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis' [legendSettings]='legendSettings' [title]='title'>
+      <e-series-collection>
+        <e-series [dataSource]='chartData' type='Line' xName='timeStamp' yName='waterTemp' name='Water Temperature' [marker]='marker'></e-series>
+        <e-series [dataSource]='chartData' type='Line' xName='timeStamp' yName='airTemp' name='Air Temperature' [marker]='marker'></e-series>
+      </e-series-collection>
+    </ejs-chart>
 <!--    <mat-progress-spinner  [mode]="'indeterminate'"> </mat-progress-spinner>-->
 
 </mat-card>

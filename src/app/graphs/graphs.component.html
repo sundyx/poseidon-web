@@ -2,6 +2,7 @@
 <p>graph</p>
 <ejs-chart id="chart-container" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis' [legendSettings]='legendSettings' [title]='title'>
 <e-series-collection>
-    <e-series [dataSource]='chartData' type='Line' xName='month' yName='sales' name='Temperature' [marker]='marker'></e-series>
+    <e-series [dataSource]='chartData' type='Line' xName='time' yName='waterTemp' name='Water Temperature' [marker]='marker'></e-series>
+  <e-series [dataSource]='chartData' type='Line' xName='time' yName='airTemp' name='Air Temperature' [marker]='marker'></e-series>
 </e-series-collection>
 </ejs-chart>

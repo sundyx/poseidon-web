@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './graphs.component.html',
   styleUrls: ['./graphs.component.scss']
 })
+
 export class GraphsComponent implements OnInit {
   public primaryXAxis: Object;
   public primaryYAxis: Object;
