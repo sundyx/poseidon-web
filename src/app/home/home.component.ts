@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RestClientService} from '../rest-client.service';
 import {SensorData} from '../../models/sensorData';
-import {timestamp} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +12,10 @@ export class HomeComponent implements OnInit {
   public primaryYAxis: object;
   public chartData: SensorData[];
   public title: string;
-  public legendSettings: Object;
-  public marker: Object;
+  public legendSettings: object;
+  public marker: object;
+  public crosshair: object;
+  public tooltip: object;
 
   constructor(private restClientService: RestClientService) {
   }
@@ -27,18 +28,17 @@ export class HomeComponent implements OnInit {
     this.legendSettings = {
       visible: true
     };
-    this.marker = {
-      dataLabel: {
-        visible: true
-      }
-    };
     this.chartData = dataList;
     this.primaryXAxis = {
-      valueType: 'Category'
+      valueType: 'DateTime',
+      intervalType: 'Auto'
     };
     this.primaryYAxis = {
       labelFormat: '{value}°C'
     };
+    this.tooltip = { enable: true, shared: true, format: '${series.name} : ${point.x} : ${point.y}' };
+    this.crosshair = { enable: true, lineType: 'Vertical' };
+    this.marker = { visible: true };
   }
 
   doGet() {
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
           let date = fullDate.getDate();
           let time = fullDate;
           dataTable['timeStamp'] = s_data.timeStamp;
-          dataTable['date'] = date;
+          dataTable['date'] = fullDate;
           dataTable['time'] = time;
           dataTable['waterTemp'] = s_data.waterTemp;
           dataTable['airTemp'] = s_data.airTemp;

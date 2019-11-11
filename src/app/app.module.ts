@@ -10,7 +10,7 @@ import {MaterialModule} from './material.module';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CategoryService, LegendService, TooltipService} from '@syncfusion/ej2-angular-charts';
-import {DataLabelService, LineSeriesService} from '@syncfusion/ej2-angular-charts';
+import {DateTimeService, DateTimeCategoryService, StripLineService, DataLabelService, LineSeriesService} from '@syncfusion/ej2-angular-charts';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
@@ -27,7 +27,8 @@ import 'hammerjs';
     BrowserModule, AppRoutingModule, ChartModule, BrowserAnimationsModule,
     MaterialModule, FormsModule, MatProgressSpinnerModule, FlexLayoutModule, HttpClientModule
   ],
-  providers: [CategoryService, LegendService, TooltipService, DataLabelService, LineSeriesService],
+  providers: [CategoryService, LegendService, TooltipService, DataLabelService,
+    DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
