@@ -7,7 +7,8 @@
 
     <!-- <br> -->
 
-     <button mat-raised-button (click)="doGet()">click me</button>
+  <button mat-raised-button (click)="doGet();progressLoading();" *ngIf="!isLoading">generate graph</button>
+    <mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoading"> </mat-progress-spinner>
     <p>graph</p>
     <ejs-chart id="chart-container" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis' [legendSettings]='legendSettings' [title]='title'[crosshair]='crosshair' [tooltip]='tooltip'>
       <e-series-collection>
@@ -15,6 +16,6 @@
         <e-series [dataSource]='chartData' type='Line' xName='date' yName='airTemp' name='Air Temperature' [marker]='marker'></e-series>
       </e-series-collection>
     </ejs-chart>
-<!--    <mat-progress-spinner  [mode]="'indeterminate'"> </mat-progress-spinner>-->
+
 
 </mat-card>
