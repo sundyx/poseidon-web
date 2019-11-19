@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RestClientService} from '../rest-client.service';
+import {RestClientService} from '../../app/rest-client.service';
 import {SensorData} from '../../models/sensorData';
 
 @Component({
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   public marker: object;
   public crosshair: object;
   public tooltip: object;
-
+  public isLoading: boolean;
   constructor(private restClientService: RestClientService) {
   }
 
@@ -36,9 +36,9 @@ export class HomeComponent implements OnInit {
     this.primaryYAxis = {
       labelFormat: '{value}°C'
     };
-    this.tooltip = { enable: true, shared: true, format: '${series.name} : ${point.x} : ${point.y}' };
-    this.crosshair = { enable: true, lineType: 'Vertical' };
-    this.marker = { visible: true };
+    this.tooltip = {enable: true, shared: true, format: '${series.name} : ${point.x} : ${point.y}'};
+    this.crosshair = {enable: true, lineType: 'Vertical'};
+    this.marker = {visible: true};
   }
 
   doGet() {
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
         const waterTemperature = 'water_temperature';
         const airTemperature = 'air_temperature';
         console.log(data[body][rows]);
-        for(const i in data[body][rows]) {
+        for (const i in data[body][rows]) {
           const dataTable = {};
           console.log(data[body][rows][i][timeStamp]);
           const s_data = new SensorData();
@@ -76,6 +76,13 @@ export class HomeComponent implements OnInit {
         console.log('Error occurred' + err.message);
       }
     );
+  }
+
+  progressLoading() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
   }
 
 
