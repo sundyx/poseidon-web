@@ -1,5 +1,5 @@
 
-<p>Sensor Data</p>
+<p>  Sensor Data</p>
 <mat-card>
     <!-- <mat-form-field>
         <input matInput [(ngModel)]="answer" placeholder="test button">
@@ -9,11 +9,13 @@
 
   <button mat-raised-button (click)="doGet();progressLoading();" *ngIf="!isLoading">generate graph</button>
     <mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoading"> </mat-progress-spinner>
+  <button mat-raised-button (click)="exportCSV();" *ngIf="!isLoading">export CSV</button>
+  <mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoading"> </mat-progress-spinner>
     <p>graph</p>
     <ejs-chart id="chart-container" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis' [legendSettings]='legendSettings' [title]='title'[crosshair]='crosshair' [tooltip]='tooltip'>
       <e-series-collection>
-        <e-series [dataSource]='chartData' type='Line' xName='date' yName='waterTemp' name='Water Temperature' [marker]='marker'></e-series>
-        <e-series [dataSource]='chartData' type='Line' xName='date' yName='airTemp' name='Air Temperature' [marker]='marker'></e-series>
+        <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='waterTemp' name='Water Temperature' [marker]='marker'></e-series>
+        <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='airTemp' name='Air Temperature' [marker]='marker'></e-series>
       </e-series-collection>
     </ejs-chart>
 
