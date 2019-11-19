@@ -1,1 +1,11 @@
-<p>images works!</p>
+<ul class="mdc-image-list mdc-image-list--masonry my-masonry-image-list">
+  <li class="mdc-image-list__item">
+    <mat-grid-tile *ngFor='let p of photoUrls'>
+      <img class="mdc-image-list__image" [src]='p' >
+    </mat-grid-tile>
+    <div class="mdc-image-list__supporting">
+      <span class="mdc-image-list__label">Text label</span>
+    </div>
+  </li>
+  ...
+</ul>

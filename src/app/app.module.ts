@@ -16,6 +16,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
 import 'hammerjs';
 import { ImagesComponent } from '../components/images/images.component';
+import {MatGridListModule} from '@angular/material/typings/grid-list';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ImagesComponent } from '../components/images/images.component';
   ],
   imports: [
     BrowserModule, AppRoutingModule, ChartModule, BrowserAnimationsModule,
-    MaterialModule, FormsModule, MatProgressSpinnerModule, FlexLayoutModule, HttpClientModule
+    MaterialModule, FormsModule, MatProgressSpinnerModule, FlexLayoutModule, HttpClientModule, MatGridListModule
   ],
   providers: [CategoryService, LegendService, TooltipService, DataLabelService,
     DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService],

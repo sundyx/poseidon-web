@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule} from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatCardImage} from '@angular/material';
 
 const modules = [
     MatButtonModule,
@@ -9,7 +9,8 @@ const modules = [
     MatInputModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardImage
 ];
 
 @NgModule({
