@@ -1,11 +1,37 @@
-<ul class="mdc-image-list mdc-image-list--masonry my-masonry-image-list">
-  <li class="mdc-image-list__item">
-    <mat-grid-tile *ngFor='let p of photoUrls'>
-      <img class="mdc-image-list__image" [src]='p' >
-    </mat-grid-tile>
-    <div class="mdc-image-list__supporting">
-      <span class="mdc-image-list__label">Text label</span>
-    </div>
+<button mat-raised-button color="accent" (click)="getImages()">Get Images</button>
+<!--  <ul class="mdc-image-list mdc-image-list&#45;&#45;masonry my-masonry-image-list">-->
+<!--    <li class="mdc-image-list__item">-->
+<!--      <p>{{ appTitle }}</p>-->
+<!--      &lt;!&ndash;    <img class="mdc-image-list_image" [src]= 'photoUrlsList[0]' >&ndash;&gt;-->
+<!--      <ul>-->
+<!--        <li *ngFor="let p of displayList">-->
+<!--          &lt;!&ndash;      <div>{{photoUrlsList}}</div>&ndash;&gt;-->
+<!--          {{p}}-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <div class="mdc-image-list__supporting">-->
+<!--        <span class="mdc-image-list__label">Text label </span>-->
+<!--      </div>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--<ul class="mdc-image-list my-image-list">-->
+<!--  <li class="mdc-image-list__item">-->
+<!--    <div class="mdc-image-list__image-aspect-container">-->
+<!--      <img class="mdc-image-list__image" src="displayList">-->
+<!--    </div>-->
+<!--    <div class="mdc-image-list__supporting">-->
+<!--      <span class="mdc-image-list__label">Text label</span>-->
+<!--    </div>-->
+<!--  </li>-->
+<!--</ul>-->
+
+<ul class="mdc-image-list mdc-image-list--masonry masonry-image-list">
+
+  <li class="mdc-image-list__item"
+      *ngFor="let image of displayList">
+    <img class="mdc-image-list__image"
+         [src]=image>
   </li>
-  ...
 </ul>
+
+

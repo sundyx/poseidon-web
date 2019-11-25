@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
   }
 
   doGet() {
+    this.isLoading = true;
     this.restClientService.getSensorData().subscribe(
       data => {
         const body = 'body';
@@ -99,10 +100,12 @@ export class HomeComponent implements OnInit {
         console.log('dataList');
         console.log(this.dataList);
         this.getGraph();
+        this.isLoading = false;
         // return data;
       },
       err => {
         console.log('Error occurred' + err.message);
+        this.isLoading = false;
       }
     );
   }
@@ -129,12 +132,7 @@ export class HomeComponent implements OnInit {
     csvExporter.generateCsv(this.dataList);
   }
 
-  progressLoading() {
-    this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
-  }
+
 
 
 }

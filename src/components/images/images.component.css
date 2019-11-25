@@ -4,9 +4,10 @@ Error: File to import not found or unreadable: @material/image-list/mdc-image-li
 
 1: @import "@material/image-list/mdc-image-list";
 2: 
-3: .my-masonry-image-list {
-4:   @include mdc-image-list-masonry-columns(5);
-5: }
+3: .masonry-image-list {
+4:   @include mdc-image-list-masonry-columns(6);
+5:   @media(max-width: 1400px) {
+6:     @include mdc-image-list-masonry-columns(5);
 
 Backtrace:
 images.component.scss:1
@@ -47,4 +48,4 @@ images.component.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: @material/image-list/mdc-image-list.\A         on line 1 of images.component.scss\A \A 1: @import \"@material/image-list/mdc-image-list\";\A 2: \A 3: .my-masonry-image-list {\A 4:   @include mdc-image-list-masonry-columns(5);\A 5: }"; }
+  content: "Error: File to import not found or unreadable: @material/image-list/mdc-image-list.\A         on line 1 of images.component.scss\A \A 1: @import \"@material/image-list/mdc-image-list\";\A 2: \A 3: .masonry-image-list {\A 4:   @include mdc-image-list-masonry-columns(6);\A 5:   @media(max-width: 1400px) {\A 6:     @include mdc-image-list-masonry-columns(5);"; }

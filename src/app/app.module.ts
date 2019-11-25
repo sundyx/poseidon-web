@@ -15,7 +15,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
 import 'hammerjs';
-import { ImagesComponent } from '../components/images/images.component';
+import {ImagesComponent } from '../components/images/images.component';
 import {MatGridListModule} from '@angular/material/typings/grid-list';
 
 @NgModule({
