@@ -13,6 +13,7 @@ export class ImagesComponent implements OnInit {
   public displayList = [];
   public photo:string;
   appTitle: string = 'myapp';
+  public isLoading: boolean;
   constructor(private restClientService: RestClientService) {}
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class ImagesComponent implements OnInit {
   getImages() {
     this.restClientService.getImageData().subscribe(
       data => {
+        this.isLoading = true;
         const body = 'body';
         const rows = 'rows';
         const timeStamp = 'time_stamp';
@@ -40,9 +42,11 @@ export class ImagesComponent implements OnInit {
         //this.photoUrls = this.photoUrls.concat((data as any).photos.map(p => p.src.landscape));
         //console.log("photos");
         //console.log(this.photoUrlsList);
+        this.isLoading = false;
       },
       err => {
         console.log('Error occurred' + err.message);
+        this.isLoading = false;
       }
     );
   }

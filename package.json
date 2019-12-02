@@ -10,7 +10,14 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "electron": "electron .",
-    "electron-build": "ng build --prod && electron ."
+    "clean": "rm -rf dist && rm -rf installer",
+    "electron-build": "ng build --prod && electron .",
+    "package-mac": "electron-packager . PoseidonAI",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win64 --arch=ia64 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
+    "buildapp": "npm run clean && tsc && npm run build",
+    "packwin": "npm run buildapp && electron-builder --win",
+    "win": "electron-builder --win"
   },
   "private": true,
   "dependencies": {

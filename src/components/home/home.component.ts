@@ -1,7 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {RestClientService} from '../../app/rest-client.service';
 import {SensorData} from '../../models/sensorData';
 import {ExportToCsv} from 'export-to-csv';
+import {enableRipple, createElement} from '@syncfusion/ej2-base';
+import {TabComponent} from '@syncfusion/ej2-angular-navigations';
+
+enableRipple(true);
 
 @Component({
   selector: 'app-home',
@@ -9,8 +13,10 @@ import {ExportToCsv} from 'export-to-csv';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('element', {static: false}) tabInstance: TabComponent;
   public primaryXAxis: object;
   public primaryYAxis: object;
+  public tempYAxis: object;
   public title: string;
   public legendSettings: object;
   public marker: object;
@@ -25,7 +31,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getGraph() {
+  getTempGraph() {
     this.title = 'Air & Water Temperature';
     this.legendSettings = {
       visible: true
@@ -37,6 +43,23 @@ export class HomeComponent implements OnInit {
     };
     this.primaryYAxis = {
       labelFormat: '{value}°C'
+    };
+    this.tooltip = {enable: true, shared: true, format: '${series.name} : ${point.x} : ${point.y}'};
+    this.crosshair = {enable: true, lineType: 'Vertical'};
+    this.marker = {visible: true};
+  }
+
+  getpHGraph() {
+    this.legendSettings = {
+      visible: true
+    };
+    // this.chartData = dataList;
+    this.primaryXAxis = {
+      valueType: 'DateTime',
+      intervalType: 'Auto'
+    };
+    this.primaryYAxis = {
+      labelFormat: '{value}'
     };
     this.tooltip = {enable: true, shared: true, format: '${series.name} : ${point.x} : ${point.y}'};
     this.crosshair = {enable: true, lineType: 'Vertical'};
@@ -75,31 +98,29 @@ export class HomeComponent implements OnInit {
 
           const fullDate = new Date(s_data.timeStamp);
           const time = fullDate.toString().split(' ');
-          console.log(time);
-          let dateString = time.slice(0, 4);
-          let dateStringNew = dateString.join(' ');
+          const dateString = time.slice(0, 4);
+          const dateStringNew = dateString.join(' ');
           const timeString = time[4];
-          console.log(timeString);
           const date = fullDate.getDate();
-          console.log(date);
-          console.log(fullDate.getTime());
+
           dataTable['timeStamp'] = fullDate;
           dataTable['date'] = dateStringNew;
           dataTable['time'] = timeString;
           dataTable['waterTemp'] = s_data.waterTemp;
           dataTable['airTemp'] = s_data.airTemp;
-          dataTable[conductivity] = s_data.conductivity;
-          dataTable[pH] = s_data.pH;
-          dataTable[oxidation] = s_data.oxidation;
-          dataTable[deviceID] = s_data.deviceID;
-          dataTable[ammonium] = s_data.ammonium;
-          dataTable[dissolvedOxygen] = s_data.dissolvedOxygen;
+          dataTable['conductivity'] = s_data.conductivity;
+          dataTable['ph'] = s_data.pH;
+          dataTable['oxidation'] = s_data.oxidation;
+          dataTable['deviceID'] = s_data.deviceID;
+          dataTable['ammonium'] = s_data.ammonium;
+          dataTable['dissolvedOxygen'] = s_data.dissolvedOxygen;
           this.dataList.push(dataTable);
           // console.log(dataTable);
         }
         console.log('dataList');
         console.log(this.dataList);
-        this.getGraph();
+        this.getTempGraph();
+        this.getpHGraph();
         this.isLoading = false;
         // return data;
       },
@@ -131,8 +152,6 @@ export class HomeComponent implements OnInit {
     const csvExporter = new ExportToCsv(options);
     csvExporter.generateCsv(this.dataList);
   }
-
-
 
 
 }
