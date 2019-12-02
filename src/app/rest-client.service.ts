@@ -11,6 +11,10 @@ export class RestClientService {
   getSensorData() {
     return this.httpClient.get(`https://3ceq2wedp7.execute-api.ap-southeast-1.amazonaws.com/test/pastSensorData?deviceId=Test_Device_1`);
   }
+
+  getImageData() {
+    return this.httpClient.get('https://f9egsd93kc.execute-api.ap-southeast-1.amazonaws.com/Test/getimages?deviceId=Test_Device_1');
+  }
 }
 
 

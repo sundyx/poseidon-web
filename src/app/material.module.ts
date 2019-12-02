@@ -9,7 +9,7 @@ const modules = [
     MatInputModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
 ];
 
 @NgModule({

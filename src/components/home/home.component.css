@@ -1,0 +1,20 @@
+header {
+  background: #2e2d2d; }
+  header .logo {
+    font-weight: bold; }
+  header nav {
+    justify-self: right; }
+    header nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0; }
+      header nav ul li {
+        float: left; }
+        header nav ul li a {
+          padding: 1.5em;
+          text-transform: uppercase;
+          font-size: .8em; }
+          header nav ul li a:hover {
+            background: #FFFFFF; }
+
+/*# sourceMappingURL=home.component.css.map */

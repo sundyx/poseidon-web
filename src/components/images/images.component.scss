@@ -1,0 +1,22 @@
+@import "@material/image-list/mdc-image-list";
+
+.masonry-image-list {
+  @include mdc-image-list-masonry-columns(6);
+  @media(max-width: 1400px) {
+    @include mdc-image-list-masonry-columns(5);
+  }
+  @media(max-width: 1020px) {
+    @include mdc-image-list-masonry-columns(4);
+  }
+  @media(max-width: 960px) {
+    @include mdc-image-list-masonry-columns(3);
+  }
+  @media(max-width: 768px) {
+    @include mdc-image-list-masonry-columns(2);
+  }
+  @media(max-width: 480px) {
+    @include mdc-image-list-masonry-columns(1);
+  }
+
+  &__item { background-color: #ccc; }
+}
