@@ -1,7 +1,7 @@
 <button mat-raised-button (click)="doGet();" *ngIf="!isLoading">generate graph</button>
 <mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoading"></mat-progress-spinner>
-<button mat-raised-button (click)="exportCSV();" *ngIf="!isLoading">export CSV</button>
-<mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoading"></mat-progress-spinner>
+<button mat-raised-button (click)="exportCSV();" *ngIf="!isLoadingCSV">export CSV</button>
+<mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoadingCSV"></mat-progress-spinner>
 <ejs-tab id="element">
   <e-tabitems>
     <e-tabitem>

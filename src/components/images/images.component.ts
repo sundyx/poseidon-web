@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ImageData} from '../../models/imageData';
 import {RestClientService} from '../../app/rest-client.service';
 
@@ -11,17 +11,21 @@ export class ImagesComponent implements OnInit {
 
   public photoUrlsList = [];
   public displayList = [];
-  public photo:string;
+  public photo: string;
   appTitle: string = 'myapp';
   public isLoading: boolean;
-  constructor(private restClientService: RestClientService) {}
+
+  constructor(private restClientService: RestClientService) {
+  }
 
   ngOnInit() {
   }
+
   getImages() {
+    this.isLoading = true;
     this.restClientService.getImageData().subscribe(
       data => {
-        this.isLoading = true;
+
         const body = 'body';
         const rows = 'rows';
         const timeStamp = 'time_stamp';

@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   public crosshair: object;
   public tooltip: object;
   public isLoading: boolean;
+  public isLoadingCSV: boolean;
   public dataList = [];
 
   constructor(private restClientService: RestClientService) {
@@ -68,6 +69,7 @@ export class HomeComponent implements OnInit {
 
   doGet() {
     this.isLoading = true;
+
     this.restClientService.getSensorData().subscribe(
       data => {
         const body = 'body';
@@ -136,6 +138,7 @@ export class HomeComponent implements OnInit {
   }
 
   exportCSV() {
+    this.isLoadingCSV = false;
     console.log(this.dataList);
     const options = {
       fieldSeparator: ',',
@@ -151,6 +154,7 @@ export class HomeComponent implements OnInit {
     };
     const csvExporter = new ExportToCsv(options);
     csvExporter.generateCsv(this.dataList);
+
   }
 
 

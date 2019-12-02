@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              {"input":  "src/poseidon-styles.scss"},
               "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
