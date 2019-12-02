@@ -17,6 +17,9 @@ import {HttpClientModule} from '@angular/common/http';
 import 'hammerjs';
 import {ImagesComponent } from '../components/images/images.component';
 import {MatGridListModule} from '@angular/material/typings/grid-list';
+import { GridAllModule } from '@syncfusion/ej2-angular-grids';
+import { DialogAllModule } from '@syncfusion/ej2-angular-popups';
+import { TabModule } from '@syncfusion/ej2-angular-navigations';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import {MatGridListModule} from '@angular/material/typings/grid-list';
   ],
   imports: [
     BrowserModule, AppRoutingModule, ChartModule, BrowserAnimationsModule,
-    MaterialModule, FormsModule, MatProgressSpinnerModule, FlexLayoutModule, HttpClientModule, MatGridListModule
+    MaterialModule, FormsModule, MatProgressSpinnerModule, FlexLayoutModule, HttpClientModule, MatGridListModule, GridAllModule,
+    DialogAllModule, TabModule
   ],
   providers: [CategoryService, LegendService, TooltipService, DataLabelService,
     DateTimeService, LineSeriesService, DateTimeCategoryService, StripLineService],

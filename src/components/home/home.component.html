@@ -1,25 +1,135 @@
-<p> Sensor Data</p>
-<mat-card>
-  <!-- <mat-form-field>
-      <input matInput [(ngModel)]="answer" placeholder="test button">
-  </mat-form-field> -->
+<button mat-raised-button (click)="doGet();" *ngIf="!isLoading">generate graph</button>
+<mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoading"></mat-progress-spinner>
+<button mat-raised-button (click)="exportCSV();" *ngIf="!isLoadingCSV">export CSV</button>
+<mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoadingCSV"></mat-progress-spinner>
+<ejs-tab id="element">
+  <e-tabitems>
+    <e-tabitem>
+      <ng-template #headerText>
 
-  <!-- <br> -->
+        <div> Air & Water Temperature </div>
 
-  <button mat-raised-button (click)="doGet();" *ngIf="!isLoading">generate graph</button>
-  <mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoading"></mat-progress-spinner>
-  <button mat-raised-button (click)="exportCSV();" *ngIf="!isLoading">export CSV</button>
-  <mat-progress-spinner [diameter]="30" [mode]="'indeterminate'" *ngIf="isLoading"></mat-progress-spinner>
-  <p>graph</p>
-  <ejs-chart id="chart-container" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
-             [legendSettings]='legendSettings' [title]='title' [crosshair]='crosshair' [tooltip]='tooltip'>
-    <e-series-collection>
-      <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='waterTemp' name='Water Temperature'
-                [marker]='marker'></e-series>
-      <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='airTemp' name='Air Temperature'
-                [marker]='marker'></e-series>
-    </e-series-collection>
-  </ejs-chart>
+      </ng-template>
+      <ng-template #content>
 
+        <mat-card>
+          <ejs-chart id="chart-container" [primaryXAxis]='primaryXAxis' [primaryYAxis]='tempYAxis'
+                     [legendSettings]='legendSettings' [crosshair]='crosshair' [tooltip]='tooltip'>
+            <e-series-collection>
+              <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='waterTemp' name='Water Temperature'
+                        [marker]='marker'></e-series>
+              <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='airTemp' name='Air Temperature'
+                        [marker]='marker'></e-series>
+            </e-series-collection>
+          </ejs-chart>
+        </mat-card>
+      </ng-template>
 
-</mat-card>
+    </e-tabitem>
+    <e-tabitem>
+      <ng-template #headerText>
+
+        <div> pH </div>
+
+      </ng-template>
+      <ng-template #content>
+
+        <mat-card>
+          <ejs-chart id="pH" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
+                     [legendSettings]='legendSettings' [crosshair]='crosshair' [tooltip]='tooltip'>
+            <e-series-collection>
+              <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='ph' name='pH'
+                        [marker]='marker'></e-series>
+            </e-series-collection>
+          </ejs-chart>
+        </mat-card>
+
+      </ng-template>
+    </e-tabitem>
+    <e-tabitem>
+      <ng-template #headerText>
+
+        <div> Conductivity </div>
+
+      </ng-template>
+      <ng-template #content>
+
+        <mat-card>
+          <ejs-chart id="conductivity" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
+                     [legendSettings]='legendSettings' [crosshair]='crosshair' [tooltip]='tooltip'>
+            <e-series-collection>
+              <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='conductivity' name='Conductivity'
+                        [marker]='marker'></e-series>
+            </e-series-collection>
+          </ejs-chart>
+        </mat-card>
+
+      </ng-template>
+
+    </e-tabitem>
+    <e-tabitem>
+      <ng-template #headerText>
+
+        <div> Dissolved Oxygen </div>
+
+      </ng-template>
+      <ng-template #content>
+
+        <mat-card>
+          <ejs-chart id="Dissolved Oxygen" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
+                     [legendSettings]='legendSettings' [crosshair]='crosshair' [tooltip]='tooltip'>
+            <e-series-collection>
+              <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='dissolvedOxygen' name='Dissolved Oxygen'
+                        [marker]='marker'></e-series>
+            </e-series-collection>
+          </ejs-chart>
+        </mat-card>
+
+      </ng-template>
+
+    </e-tabitem>
+    <e-tabitem>
+      <ng-template #headerText>
+
+        <div> ammonium </div>
+
+      </ng-template>
+      <ng-template #content>
+
+        <mat-card>
+          <ejs-chart id="ammonium" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
+                     [legendSettings]='legendSettings' [crosshair]='crosshair' [tooltip]='tooltip'>
+            <e-series-collection>
+              <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='ammonium' name='Ammonium'
+                        [marker]='marker'></e-series>
+            </e-series-collection>
+          </ejs-chart>
+        </mat-card>
+
+      </ng-template>
+
+    </e-tabitem>
+
+    <e-tabitem>
+      <ng-template #headerText>
+
+        <div> Oxidation </div>
+
+      </ng-template>
+      <ng-template #content>
+
+        <mat-card>
+          <ejs-chart id="Annomium" [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
+                     [legendSettings]='legendSettings' [crosshair]='crosshair' [tooltip]='tooltip'>
+            <e-series-collection>
+              <e-series [dataSource]='dataList' type='Line' xName='timeStamp' yName='oxidation' name='Oxidation'
+                        [marker]='marker'></e-series>
+            </e-series-collection>
+          </ejs-chart>
+        </mat-card>
+
+      </ng-template>
+
+    </e-tabitem>
+  </e-tabitems>
+</ejs-tab>`
